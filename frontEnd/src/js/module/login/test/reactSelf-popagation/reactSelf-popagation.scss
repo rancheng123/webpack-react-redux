@@ -1,0 +1,13 @@
+.reactSelf-popagation{
+	background:red;
+	>span{
+		padding:0px 6px;
+		height:20px;
+		border:1px solid green;
+		text-align:center;
+		line-height:20px;
+	}
+	>span.current{
+		background:yellow;
+	}
+}

@@ -3,6 +3,8 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, Link ,hashHistory} from 'react-router';
 
+//组件管理器
+import {} from './asset/componentStore';
 
 //compents
                     //注意点   后面不能写.js后缀
@@ -14,6 +16,10 @@ import ProductDetail from './module/login/product/product_detail';
 import orderList from './module/login/order/order_list';
 
 
+/*测试 start*/
+import test from './module/login/test/test';
+/*测试 end*/
+
 
 
 
@@ -22,6 +28,12 @@ import orderList from './module/login/order/order_list';
 render((
         <div>
             <Router history={hashHistory}>
+
+                
+                {/*测试 start*/}
+                <Route path="/test" component={test}></Route>
+                {/*测试 end*/}
+
                 <Route path="/" component={Login}></Route>
                 <Route path="/login" component={Login}></Route>
 
