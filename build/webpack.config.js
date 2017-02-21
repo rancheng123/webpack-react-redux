@@ -11,6 +11,7 @@ var dist_path = path.resolve(current_path, '../frontEnd/dist');
 var webpack = require('webpack');
 var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
 var HtmlWebpackPlugin= require('html-webpack-plugin');
+var px2rem = require('postcss-px2rem');
 /*webpack插件 end*/
 
 
@@ -20,12 +21,21 @@ var indexHtml = new HtmlWebpackPlugin({
 	hash: true
 })
 
+var testPlugin = new webpack.LoaderOptionsPlugin({
+    options: {
+      postcss: function () {
+        return [px2rem({remUnit: 75})];
+      }
+    }
+  });
+
 
 module.exports = {
     //插件项
     plugins: [
     	commonsPlugin,
     	indexHtml
+        //testPlugin
     ],
     //页面入口文件配置
     entry: {

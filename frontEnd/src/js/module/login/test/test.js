@@ -13,13 +13,13 @@ class TestSearch extends Component {
     };
     componentDidMount(){
         // 存储 start
-        componentStore.setById('TestSearch11',this);
+        componentStore.setById('TestSearch',this);
         // 存储 end
     };
     componentWillUnmount(){
 
         // 存储 start
-        componentStore.clearById('TestSearch11');
+        componentStore.clearById('TestSearch');
         // 存储 end
 
     };
@@ -38,8 +38,9 @@ class TestSearch extends Component {
         var requestData = {
             number: this.refs.number.value,
             name: this.refs.name.value,
-            pageNum: 1
+            pageNum: componentStore.getById('test_popagation1').state.currentPageNum
         }
+
 
         var responseData = [{
             name: 'new-item1'
@@ -135,7 +136,27 @@ class testWrap extends Component {
     render(){
 
         var popagationCallback = function(num){
-            console.log(num)
+
+
+            var requestData = {
+                number: componentStore.getById('TestSearch').refs.number.value,
+                name: componentStore.getById('TestSearch').refs.name.value,
+                pageNum: num
+            }
+
+
+            var responseData = [{
+                name: 'old-item1'
+            },{
+                name: 'old-item2'
+            },{
+                name: 'old-item3'
+            }];
+
+            var testListComp = componentStore.getById('TestList');
+            testListComp.state.data = responseData;
+            testListComp.setState(testListComp.state);
+
         };
 
         return (
@@ -145,9 +166,7 @@ class testWrap extends Component {
                 <div>
                     <Popagation callback={popagationCallback} $id="test_popagation1"></Popagation>
                 </div>
-                <div>
-                    <Popagation callback={popagationCallback} $id="test_popagation2"></Popagation>
-                </div>
+
                 
             </div>
         )

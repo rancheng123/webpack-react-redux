@@ -1,3 +1,5 @@
+require('../scss/base/base.css')
+
 //react
 import React from 'react'
 import { render } from 'react-dom'
