@@ -6,7 +6,7 @@ class Login extends Component {
     };
 
     login(){
-        window.location.hash = 'index'
+        window.location.hash = 'home'
     }
 
     render(){

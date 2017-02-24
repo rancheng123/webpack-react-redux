@@ -30,6 +30,7 @@ var testPlugin = new webpack.LoaderOptionsPlugin({
   });
 
 
+
 module.exports = {
     //插件项
     plugins: [
@@ -44,7 +45,11 @@ module.exports = {
     //入口文件输出配置 md5????????????????????
     output: {
         path: dist_path,
-        filename: '[name].js'
+        filename: '[name].js',
+
+        chunkFilename: './modules11221/[name].[chunkhash:5].chunk.js',
+        //publicPath: dist_path
+        publicPath: 'http://localhost:8080/'
     },
     //设置为true(修改后自动执行webpack 命令)
     watch: true,

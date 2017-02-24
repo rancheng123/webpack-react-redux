@@ -32,7 +32,7 @@
 /******/
 /******/ 	// objects to store loaded and loading chunks
 /******/ 	var installedChunks = {
-/******/ 		1: 0
+/******/ 		7: 0
 /******/ 	};
 /******/
 /******/ 	// The require function
@@ -80,7 +80,7 @@
 /******/ 		if (__webpack_require__.nc) {
 /******/ 			script.setAttribute("nonce", __webpack_require__.nc);
 /******/ 		}
-/******/ 		script.src = __webpack_require__.p + "" + chunkId + ".js";
+/******/ 		script.src = __webpack_require__.p + "./modules11221/" + ({"0":"product_detail","1":"home","2":"order_list","3":"product_add","4":"login","5":"product_list","6":"index"}[chunkId]||chunkId) + "." + {"0":"060e3","1":"e40e4","2":"fabe1","3":"40aa9","4":"bd0df","5":"20cac","6":"76151"}[chunkId] + ".chunk.js";
 /******/ 		var timeout = setTimeout(onScriptComplete, 120000);
 /******/ 		script.onerror = script.onload = onScriptComplete;
 /******/ 		function onScriptComplete() {
@@ -136,7 +136,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "http://localhost:8080/";
 /******/
 /******/ 	// on error function for async loading
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
