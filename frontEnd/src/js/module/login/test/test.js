@@ -26,14 +26,18 @@ class TestSearch extends Component {
     searchFn(){
         var that = this;
         
-        /*fetch('/data/test.json')
+
+        //'api/test/search'
+
+        fetch('http://localhost:3000/posts')
         .then(response => response.json())
         .then(data => {
+            debugger;
             if(data.status == 200){
 
                 alert('ok')
             }
-        });*/
+        });
 
         var requestData = {
             number: this.refs.number.value,

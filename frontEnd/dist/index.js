@@ -1,4 +1,4 @@
-webpackJsonp([6,7],[
+webpackJsonp([7,8],[
 /* 0 */
 /***/ (function(module, exports) {
 
@@ -11976,8 +11976,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../../node_modules/.0.26.1@css-loader/index.js!./base.css", function() {
-			var newContent = require("!!../../../../node_modules/.0.26.1@css-loader/index.js!./base.css");
+		module.hot.accept("!!../../../../node_modules/.0.26.2@css-loader/index.js!./base.css", function() {
+			var newContent = require("!!../../../../node_modules/.0.26.2@css-loader/index.js!./base.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -12003,7 +12003,7 @@ var stylesInDom = {},
 		};
 	},
 	isOldIE = memoize(function() {
-		return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+		return /msie [6-9]\b/.test(self.navigator.userAgent.toLowerCase());
 	}),
 	getHeadElement = memoize(function () {
 		return document.head || document.getElementsByTagName("head")[0];
@@ -26782,7 +26782,8 @@ exports.stringify = function (obj, opts) {
 /* 239 */,
 /* 240 */,
 /* 241 */,
-/* 242 */
+/* 242 */,
+/* 243 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26804,12 +26805,12 @@ __webpack_require__(111);
 
 
 var Login = function Login(location, callback) {
-    __webpack_require__.e/* require.ensure */(4).then((function (require) {
-        callback(null, __webpack_require__(241).default);
+    __webpack_require__.e/* require.ensure */(5).then((function (require) {
+        callback(null, __webpack_require__(242).default);
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 
-//ע������ ���ܽ���index.js
+//×¢ÒâÊÂÏî ²»ÄÜ½Ð×öindex.js
 var home = function home(location, callback) {
     __webpack_require__.e/* require.ensure */(1).then((function (require) {
         callback(null, __webpack_require__(236).default);
@@ -26817,13 +26818,13 @@ var home = function home(location, callback) {
 };
 
 var product_list = function product_list(location, callback) {
-    __webpack_require__.e/* require.ensure */(5).then((function (require) {
+    __webpack_require__.e/* require.ensure */(6).then((function (require) {
         callback(null, __webpack_require__(240).default);
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 
 var product_add = function product_add(location, callback) {
-    __webpack_require__.e/* require.ensure */(3).then((function (require) {
+    __webpack_require__.e/* require.ensure */(4).then((function (require) {
         callback(null, __webpack_require__(238).default);
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
@@ -26835,10 +26836,18 @@ var product_detail = function product_detail(location, callback) {
 };
 
 var order_list = function order_list(location, callback) {
-    __webpack_require__.e/* require.ensure */(2).then((function (require) {
+    __webpack_require__.e/* require.ensure */(3).then((function (require) {
         callback(null, __webpack_require__(237).default);
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
+
+/*测试  start*/
+var test = function test(location, callback) {
+    __webpack_require__.e/* require.ensure */(2).then((function (require) {
+        callback(null, __webpack_require__(241).default);
+    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+};
+/*测试  end*/
 
 (0, _reactDom.render)(_react2.default.createElement(
     'div',
@@ -26846,6 +26855,7 @@ var order_list = function order_list(location, callback) {
     _react2.default.createElement(
         _reactRouter.Router,
         { history: _reactRouter.hashHistory },
+        _react2.default.createElement(_reactRouter.Route, { path: '/test', getComponent: test }),
         _react2.default.createElement(_reactRouter.Route, { path: '/', getComponent: Login }),
         _react2.default.createElement(_reactRouter.Route, { path: '/login', getComponent: Login }),
         _react2.default.createElement(
@@ -26860,5 +26870,5 @@ var order_list = function order_list(location, callback) {
 ), document.getElementById('app'));
 
 /***/ })
-],[242]);
+],[243]);
 //# sourceMappingURL=index.js.map

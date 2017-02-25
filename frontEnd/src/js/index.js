@@ -4,7 +4,8 @@ require('../scss/base/base.css')
 import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, Link ,hashHistory} from 'react-router';
-
+//组件管理器
+import {} from './asset/componentStore';
 
 
 const Login = (location, callback) => {
@@ -13,7 +14,7 @@ const Login = (location, callback) => {
     }, 'login')
 }
 
-//ע������ ���ܽ���index.js
+//×¢ÒâÊÂÏî ²»ÄÜ½Ð×öindex.js
 const home = (location, callback) => {
     require.ensure([], require => {
         callback(null, require('./module/login/home').default)
@@ -44,11 +45,24 @@ const order_list = (location, callback) => {
     }, 'order_list')
 }
 
+/*测试  start*/
+const test = (location, callback) => {
+    require.ensure([], require => {
+        callback(null, require('./module/login/test/test').default)
+    }, 'test')
+}
+/*测试  end*/
 
 
 render((
         <div>
             <Router history={hashHistory}>
+
+                {/*测试  start*/}
+                <Route path="/test" getComponent={test}></Route>
+                {/*测试  end*/}
+
+
                 <Route path="/" getComponent={Login}></Route>
                 <Route path="/login" getComponent={Login}></Route>
                 <Route path="/home" getComponent={home}>
