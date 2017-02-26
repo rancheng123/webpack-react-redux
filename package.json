@@ -38,7 +38,7 @@
     "underscore": "^1.8.3"
   },
   "scripts": {
-    "startServer": "cd build & webpack-dev-server --hot",
+    "startServer": "cd build & node server",
     "build": "cd build & webpack",
     "mock": "cd build & node json-server"
   }
