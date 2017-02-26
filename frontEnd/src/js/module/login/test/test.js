@@ -29,7 +29,21 @@ class TestSearch extends Component {
 
         //'api/test/search'
 
-        fetch('http://localhost:3000/posts')
+        //代理？？？
+        //fetch多个请求
+
+
+        
+        var req = new Request('http://localhost:3000/api/test/search', {
+            method: 'post', 
+            //不缓存响应的结果
+            cache: 'reload',
+            body: {
+                a: 1,b: 2
+            }
+        });  
+
+        fetch(req)
         .then(response => response.json())
         .then(data => {
             debugger;
@@ -64,7 +78,7 @@ class TestSearch extends Component {
         
 
         return (
-            <div className="testSearch"> 
+            <div className="testSearch css3Test"> 
                 数量：<input type="text" ref="number"/>
                 名称：<input type="text" ref="name" />
                 <input type="button" value="查询" onClick={this.searchFn.bind(self)} />

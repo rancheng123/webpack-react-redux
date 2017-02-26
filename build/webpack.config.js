@@ -83,11 +83,43 @@ module.exports = {
                 //ES2015转码规则       react转码规则
                 loader: 'babel-loader?presets[]=es2015&presets[]=react'
             },
+            
+
             {
                 test: /\.scss$/,
-                loader: 'style-loader!css-loader?sourceMap!sass-loader?sourceMap'
-                //loaders: ["style-loader", "css-loader?sourceMap", "sass-loader?sourceMap"]
+                loader: [
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    },
 
+                    //注意事项： 
+                    //postcss-loader需要放在style-loader,css-loader之前 ，sass-loader之后
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: [
+                                //require('postcss-smart-import')({ /* ...options */ }),
+                                //require('precss')({ /* ...options */ }),
+                                require('autoprefixer')({ /* ...options */ })
+                              ]
+                        }
+                    },
+
+
+
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    }
+                ]
             },
 
 

@@ -45,6 +45,31 @@
 
 
 
+//2 postcss-loader
+
+        module: {
+            loaders: [{
+                    test: /\.scss$/,
+                    //注意事项： postcss-loader需要放在style-loader,css-loader之前 ，sass-loader之后
+                    loader: 'style-loader!css-loader?sourceMap!postcss-loader!sass-loader?sourceMap'
+            }]
+        }
+
+        还需要一个名为postcss.config.js的配置文件，其内容如下
+            module.exports = {
+                plugins: [
+                    //require('postcss-smart-import')({ /* ...options */ }),
+                    //require('precss')({ /* ...options */ }),
+                    require('autoprefixer')({ /* ...options */ })
+                ]
+            }
+
+
+
+
+
+
+
 
 
 //webpack搭建的问题
