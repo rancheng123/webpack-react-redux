@@ -10,33 +10,50 @@ var dist_path = path.resolve(current_path, '../frontEnd/dist');
 /*webpack插件 start*/
 var webpack = require('webpack');
 var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
+
+var uglifyJS = new webpack.optimize.UglifyJsPlugin({
+    compress: {
+        warnings: false
+    },
+    sourceMap: true,//这里的soucemap 不能少，可以在线上生成soucemap文件，便于调试
+    mangle: true
+});
+
+
 var HtmlWebpackPlugin= require('html-webpack-plugin');
 var px2rem = require('postcss-px2rem');
+var browserslist = require('browserslist');
+
 /*webpack插件 end*/
+
+
+
 
 
 
 var indexHtml = new HtmlWebpackPlugin({
 	template: path.resolve(src_path,'index.html'),
 	hash: true
-})
+});
 
-var testPlugin = new webpack.LoaderOptionsPlugin({
-    options: {
-      postcss: function () {
-        return [px2rem({remUnit: 75})];
-      }
+/*//创建全局常量
+var AA = new webpack.DefinePlugin({
+    "process.env": {
+        NODE_ENV: JSON.stringify("production")
     }
-  });
-
+});
+console.log("Running App version " + process.env);
+console.log('-----------dev---------')*/
 
 
 module.exports = {
     //插件项
     plugins: [
+        //AA,
     	commonsPlugin,
+        //压缩JS插件 需做dev product判断     886KB
+        uglifyJS,
     	indexHtml
-        //testPlugin
     ],
     //页面入口文件配置
     entry: {
@@ -103,7 +120,10 @@ module.exports = {
                             plugins: [
                                 //require('postcss-smart-import')({ /* ...options */ }),
                                 //require('precss')({ /* ...options */ }),
-                                require('autoprefixer')({ /* ...options */ })
+                                require('autoprefixer')({
+                                    browsers: browserslist('> 1%')
+                                }),
+                                require('postcss-px2rem')({remUnit: 100})
                               ]
                         }
                     },

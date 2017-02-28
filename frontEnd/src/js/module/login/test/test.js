@@ -163,6 +163,8 @@ class testWrap extends Component {
             }
 
 
+
+
             var responseData = [{
                 name: 'old-item1'
             },{
@@ -183,6 +185,10 @@ class testWrap extends Component {
                 <TestList></TestList>
                 <div>
                     <Popagation callback={popagationCallback} $id="test_popagation1"></Popagation>
+                </div>
+
+                <div className="testRem">
+
                 </div>
 
                 
