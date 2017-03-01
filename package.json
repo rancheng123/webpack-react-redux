@@ -10,6 +10,7 @@
     "babel-preset-stage-0": "^6.22.0",
     "browserslist": "^1.7.5",
     "css-loader": "^0.26.1",
+    "file-loader": "^0.10.1",
     "gulp": "^3.9.1",
     "html-loader": "^0.4.4",
     "html-webpack-plugin": "^2.28.0",
@@ -39,8 +40,10 @@
     "underscore": "^1.8.3"
   },
   "scripts": {
-    "startServer": "cd build & node server",
+    "server": "cd build & set NODE_ENV=dev& node server",
+    "onlineServer": "cd build & set NODE_ENV=production& node server",
     "build": "cd build & webpack",
+    "buildTest": "cd build & set NODE_ENV=production& webpack --debug",
     "mock": "cd build & node json-server"
   }
 }

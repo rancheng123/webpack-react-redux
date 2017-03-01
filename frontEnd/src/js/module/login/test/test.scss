@@ -13,3 +13,63 @@
   height:100px;
   background:gray;
 }
+
+.testUrlLoader{
+  width:100px;
+  height:100px;
+  border: 2px solid green;
+  background:url('./1.jpg');
+}
+
+.testUrlLoader2{
+  width:330px;
+  height:220px;
+  border: 2px solid ;
+  background:url('../../../../image/2.jpg') no-repeat;
+  background-size: 100%;
+}
+
+/*
+@font-face {
+  font-family: 'GothamBold';
+  src: url("../../../../fonts/gothambold/gothambold-webfont.otf"),
+  url("../../../../fonts/gothambold/gothambold-webfont.woff2") format("woff2"),
+  url("../../../../fonts/gothambold/gothambold-webfont.woff") format("woff"),
+  url("../../../../fonts/gothambold/gothambold-webfont.ttf") format("truetype"),
+  url("../../../../fonts/gothambold/gothambold-webfont.svg#GothamBold") format("svg");
+
+  font-weight: normal;
+  font-style: normal;
+}*/
+
+
+
+/*@font-face {
+  font-family: 'GothamBold';
+  src: url("../fonts/gothambold/gothambold-webfont.otf");
+  src: url("../fonts/gothambold/gothambold-webfont.woff2") format("woff2"), url("../fonts/gothambold/gothambold-webfont.woff") format("woff"), url("../fonts/gothambold/gothambold-webfont.ttf") format("truetype"), url("../fonts/gothambold/gothambold-webfont.svg#GothamBold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

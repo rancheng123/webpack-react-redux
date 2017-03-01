@@ -188,8 +188,12 @@ class testWrap extends Component {
                 </div>
 
                 <div className="testRem">
-
+                    
                 </div>
+
+                {/*<img src="/images/1.jpg" alt="1111"/>*/}
+                <div className="testUrlLoader"></div>
+                <div className="testUrlLoader2"></div>
 
                 
             </div>

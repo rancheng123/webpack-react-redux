@@ -10,25 +10,10 @@ var dist_path = path.resolve(current_path, '../frontEnd/dist');
 /*webpack插件 start*/
 var webpack = require('webpack');
 var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
-
-var uglifyJS = new webpack.optimize.UglifyJsPlugin({
-    compress: {
-        warnings: false
-    },
-    sourceMap: true,//这里的soucemap 不能少，可以在线上生成soucemap文件，便于调试
-    mangle: true
-});
-
-
 var HtmlWebpackPlugin= require('html-webpack-plugin');
 var px2rem = require('postcss-px2rem');
 var browserslist = require('browserslist');
-
 /*webpack插件 end*/
-
-
-
-
 
 
 var indexHtml = new HtmlWebpackPlugin({
@@ -36,34 +21,59 @@ var indexHtml = new HtmlWebpackPlugin({
 	hash: true
 });
 
-/*//创建全局常量
-var AA = new webpack.DefinePlugin({
-    "process.env": {
-        NODE_ENV: JSON.stringify("production")
-    }
-});
-console.log("Running App version " + process.env);
-console.log('-----------dev---------')*/
+
+
+var isOnline = (process.env.NODE_ENV == 'production');
+
+console.log(process.env.NODE_ENV)
+console.log(process.env.NODE_ENV == 'production')
+/*测试start */
+//isOnline = true;
+/*测试end */
+
+var plugins = [
+    commonsPlugin,
+    indexHtml
+];
+
+if(isOnline){
+    var uglifyJS = new webpack.optimize.UglifyJsPlugin({
+        compress: {
+            warnings: false
+        },
+        sourceMap: true,//这里的soucemap 不能少，可以在线上生成soucemap文件，便于调试
+        mangle: true
+    });
+    plugins.push(uglifyJS);
+
+    //解决压缩后报错警告
+    var AA = new webpack.DefinePlugin({
+        "process.env": {
+            NODE_ENV: JSON.stringify("production")
+        }
+    });
+    plugins.push(AA);
+}
+
+
+
+
+
+
 
 
 module.exports = {
     //插件项
-    plugins: [
-        //AA,
-    	commonsPlugin,
-        //压缩JS插件 需做dev product判断     886KB
-        uglifyJS,
-    	indexHtml
-    ],
+    plugins:plugins,
     //页面入口文件配置
     entry: {
         index : path.resolve(src_path,'js/index.js')
     },
-    //入口文件输出配置 md5????????????????????
     output: {
         path: dist_path,
         filename: '[name].[chunkhash:5].js',
         chunkFilename: './modules/[name].[chunkhash:5].chunk.js'
+       // ,publicPath: 'http://localhost:8388'
     },
     //设置为true(修改后自动执行webpack 命令)
     watch: true,
@@ -124,7 +134,7 @@ module.exports = {
                                     browsers: browserslist('> 1%')
                                 }),
                                 require('postcss-px2rem')({remUnit: 100})
-                              ]
+                            ]
                         }
                     },
 
@@ -140,11 +150,18 @@ module.exports = {
             },
 
 
-
             {
-                test: /\.(png|jpg)$/,
-                loader: 'url-loader?limit=8192'
+                test: /\.(jpeg|jpg|png|gif)$/,
+                /* limit=8192是小于8K的图片转成base64内联在代码中 */
+                loader: 'url-loader?limit=8192&name=images/[name].[hash:8].[ext]'
             }
+
+           /* {
+             // 专供iconfont方案使用的，后面会带一串时间戳，需要特别匹配到
+             test: /\.(woff|woff2|svg|eot|ttf)\??.*$/,
+             loader: 'filel-loader?name=fonts/[name].[md5:hash:hex:7].[ext]'
+             }*/
+
         ]
     },
     //其它解决方案配置
