@@ -153,8 +153,13 @@ module.exports = {
             {
                 test: /\.(jpeg|jpg|png|gif)$/,
                 /* limit=8192是小于8K的图片转成base64内联在代码中 */
-                loader: 'url-loader?limit=8192&name=images/[name].[hash:8].[ext]'
-            }
+                loader: 'url-loader?limit=8192&name=./images/[name].[hash:8].[ext]'
+                //loader: 'url-loader?limit=8192&name=./images/[name].[ext]'
+
+                //html中使用  <img src={require("./ran.jpg")} alt="22222222"/>
+
+            },
+
 
            /* {
              // 专供iconfont方案使用的，后面会带一串时间戳，需要特别匹配到

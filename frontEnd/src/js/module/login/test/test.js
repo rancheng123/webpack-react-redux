@@ -191,8 +191,13 @@ class testWrap extends Component {
                     
                 </div>
 
-                {/*<img src="/images/1.jpg" alt="1111"/>*/}
-                <div className="testUrlLoader"></div>
+
+
+
+
+                <img src={require("./ran.jpg")} alt="22222222"/>
+
+                <div className="testUrlLoader">此图为何不显示</div>
                 <div className="testUrlLoader2"></div>
 
                 

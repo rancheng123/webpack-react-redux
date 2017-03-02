@@ -42,7 +42,7 @@
   "scripts": {
     "server": "cd build & set NODE_ENV=dev& node server",
     "onlineServer": "cd build & set NODE_ENV=production& node server",
-    "build": "cd build & webpack",
+    "build": "cd build & webpack --display-error-details",
     "buildTest": "cd build & set NODE_ENV=production& webpack --debug",
     "mock": "cd build & node json-server"
   }
