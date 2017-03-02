@@ -97,6 +97,37 @@
 
 
 
+//webpack 图片不显示
+
+    //webpack配置
+        module.exports = {
+            module: {
+                loaders: [
+                    {
+                        test: /\.(jpeg|jpg|png|gif)$/,
+                        /* limit=8192是小于8K的图片转成base64内联在代码中 */
+                        loader: 'url-loader?limit=8192&name=images/[name].[hash:8].[ext]'
+                    }
+                ]
+            }
+        }
+
+
+
+    //1. img 标签
+        <img src={require("./ran.jpg")} alt="22222222"/>
+    // 2. css url
+
+        //webpack配置中必须设置 publicPath， 才能显示出来
+        module.exports = {
+            output: {
+                publicPath: 'http://localhost:8388/'
+            }
+        }
+
+
+
+
 
 
 

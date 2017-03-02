@@ -72,8 +72,11 @@ module.exports = {
     output: {
         path: dist_path,
         filename: '[name].[chunkhash:5].js',
-        chunkFilename: './modules/[name].[chunkhash:5].chunk.js'
-       // ,publicPath: 'http://localhost:8388'
+        chunkFilename: './modules/[name].[chunkhash:5].chunk.js',
+
+        //此处配置域名，注意事项： 结尾必须加/ ，否则报错
+        publicPath: 'http://localhost:8388/'
+
     },
     //设置为true(修改后自动执行webpack 命令)
     watch: true,
@@ -133,12 +136,12 @@ module.exports = {
                                 require('autoprefixer')({
                                     browsers: browserslist('> 1%')
                                 }),
-                                require('postcss-px2rem')({remUnit: 100})
+                                require('postcss-px2rem')({
+                                    remUnit: 100
+                                })
                             ]
                         }
                     },
-
-
 
                     {
                         loader: 'sass-loader',
@@ -153,8 +156,7 @@ module.exports = {
             {
                 test: /\.(jpeg|jpg|png|gif)$/,
                 /* limit=8192是小于8K的图片转成base64内联在代码中 */
-                loader: 'url-loader?limit=8192&name=./images/[name].[hash:8].[ext]'
-                //loader: 'url-loader?limit=8192&name=./images/[name].[ext]'
+                loader: 'url-loader?limit=8192&name=images/[name].[hash:8].[ext]'
 
                 //html中使用  <img src={require("./ran.jpg")} alt="22222222"/>
 

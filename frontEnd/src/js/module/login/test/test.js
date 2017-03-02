@@ -194,10 +194,8 @@ class testWrap extends Component {
 
 
 
-
                 <img src={require("./ran.jpg")} alt="22222222"/>
-
-                <div className="testUrlLoader">此图为何不显示</div>
+                <div className="testUrlLoader">此图必须在webpack配置中加publicPath才能显示</div>
                 <div className="testUrlLoader2"></div>
 
                 
