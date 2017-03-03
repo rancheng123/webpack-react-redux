@@ -9,7 +9,16 @@ var dist_path = path.resolve(current_path, '../frontEnd/dist');
 
 /*webpack插件 start*/
 var webpack = require('webpack');
-var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
+
+
+//var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
+var commonsPlugin = new webpack.optimize.CommonsChunkPlugin({
+    name: 'vendors',
+    filename: 'apps/vendors.js'
+});
+
+
+
 var HtmlWebpackPlugin= require('html-webpack-plugin');
 var px2rem = require('postcss-px2rem');
 var browserslist = require('browserslist');
@@ -67,7 +76,25 @@ module.exports = {
     plugins:plugins,
     //页面入口文件配置
     entry: {
+        vendors: [
+            'react',
+            'react-router',
+            'react-dom',
+
+            /*
+             react-validation
+             react-addons-css-transition-group
+             react-addons-transition-group
+             classnames
+
+             Popagation组件 需要定义别名
+
+            */
+
+
+        ],
         index : path.resolve(src_path,'js/index.js')
+
     },
     output: {
         path: dist_path,
