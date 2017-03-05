@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { browserHistory} from 'react-router';
 
 class ProductList extends Component {
     constructor(){
@@ -6,11 +7,13 @@ class ProductList extends Component {
     };
 
     productAdd(){
-        window.location.hash='productAdd';
+        //页面无刷新切换路由
+        browserHistory.push('/productAdd');
     }
 
     productDetail(){
-        window.location.hash='productDetail';
+        //页面无刷新切换路由
+        browserHistory.push('/productDetail');
     }
 
     render(){

@@ -8,7 +8,8 @@ var server = new WebpackDevServer( webpack(config), {
     //historyApiFallback: true,
     //inline: true,
     hot: true,
-    stats: { colors: true }
+    stats: { colors: true },
+	historyApiFallback: true
 });
 server.listen(8388, "localhost", function() {
 	console.log('服务器已启动')

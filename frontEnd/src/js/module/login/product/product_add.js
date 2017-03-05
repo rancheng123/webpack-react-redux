@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { browserHistory} from 'react-router';
 
 import _ from 'underscore';
 //验证插件
@@ -79,7 +80,8 @@ class AddProduct extends Component {
         var res = this.refs.form.validateAll();
 
         if( _.isEmpty(res)  ){
-            window.location.hash='productList';
+            //页面无刷新切换路由
+            browserHistory.push('/productList');
         };
 
     };

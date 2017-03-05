@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { browserHistory} from 'react-router';
 
 class Login extends Component {
     constructor(){
@@ -6,7 +7,9 @@ class Login extends Component {
     };
 
     login(){
-        window.location.hash = 'home'
+
+        //页面无刷新切换路由
+        browserHistory.push('/home');
     }
 
     render(){

@@ -3,7 +3,7 @@ require('../scss/base/base.css')
 //react
 import React from 'react'
 import { render } from 'react-dom'
-import { Router, Route, Link ,hashHistory} from 'react-router';
+import { Router, Route, Link ,browserHistory} from 'react-router';
 //组件管理器
 import {} from './asset/componentStore';
 
@@ -56,7 +56,7 @@ const test = (location, callback) => {
 
 render((
         <div>
-            <Router history={hashHistory}>
+            <Router history={browserHistory}>
 
                 {/*测试  start*/}
                 <Route path="/test" getComponent={test}></Route>
