@@ -43,9 +43,12 @@
     "underscore": "^1.8.3"
   },
   "scripts": {
-    "server": "cd build & set NODE_ENV=dev& node server",
+    "dev": "cd build & set NODE_ENV=dev& node server",
+    "online": "cd build & set NODE_ENV=production&webpack --display-error-details",
+    "expressServer": "cd build & set NODE_ENV=production&node expressServer",
+
     "onlineServer": "cd build & set NODE_ENV=production& node server",
-    "build": "cd build & webpack --display-error-details",
+
     "buildTest": "cd build & set NODE_ENV=production& webpack --debug",
     "mock": "cd build & node json-server"
   }

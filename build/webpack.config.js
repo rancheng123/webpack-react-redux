@@ -1,3 +1,4 @@
+var isOnline = (process.env.NODE_ENV == 'production');
 
 /*path start*/
 var path = require('path');
@@ -31,14 +32,6 @@ var indexHtml = new HtmlWebpackPlugin({
 });
 
 
-
-var isOnline = (process.env.NODE_ENV == 'production');
-
-console.log(process.env.NODE_ENV)
-console.log(process.env.NODE_ENV == 'production')
-/*测试start */
-//isOnline = true;
-/*测试end */
 
 var plugins = [
     commonsPlugin,
@@ -98,11 +91,12 @@ module.exports = {
     },
     output: {
         path: dist_path,
-        filename: '[name].[chunkhash:5].js',
-        chunkFilename: './modules/[name].[chunkhash:5].chunk.js',
+        filename: isOnline ? '[name].[chunkhash:5].js' : '[name].js'  ,
+        chunkFilename: isOnline ? './modules/[name].[chunkhash:5].chunk.js' : './modules/[name].chunk.js' ,
 
         //此处配置域名，注意事项： 结尾必须加/ ，否则报错
-        publicPath: 'http://localhost:8388/'
+        //publicPath: 'http://localhost:8388/',
+        publicPath: isOnline ? '' : 'http://localhost:8388/'
 
     },
     //设置为true(修改后自动执行webpack 命令)
