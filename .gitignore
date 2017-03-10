@@ -3,3 +3,4 @@ cache
 npm-debug.log
 .idea
 nginx-1.7.4
+/frontEnd/dist

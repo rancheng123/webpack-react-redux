@@ -181,22 +181,34 @@ class testWrap extends Component {
 
         return (
             <div>
-                <TestSearch></TestSearch>
-                <TestList></TestList>
-                <div>
-                    <Popagation callback={popagationCallback} $id="test_popagation1"></Popagation>
+                <div className="">
+                    <TestSearch></TestSearch>
+                    <TestList></TestList>
+                    <div>
+                        <Popagation callback={popagationCallback} $id="test_popagation1"></Popagation>
+                    </div>
+
+                    <div className="testRem">
+
+                    </div>
+
+
+
+
+                    <img src={require("./ran.jpg")} alt="22222222"/>
+                    <div className="testUrlLoader">此图必须在webpack配置中加publicPath才能显示</div>
+                    <div className="testUrlLoader2"></div>
                 </div>
 
-                <div className="testRem">
-                    
+
+                <div className="testFonts">
+                打发第三方
+                    dsfdsa
                 </div>
 
-
-
-
-                <img src={require("./ran.jpg")} alt="22222222"/>
-                <div className="testUrlLoader">此图必须在webpack配置中加publicPath才能显示</div>
-                <div className="testUrlLoader2"></div>
+                <div className="testWeiruan">
+                    微软雅黑
+                </div>
 
                 
             </div>

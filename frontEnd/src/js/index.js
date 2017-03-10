@@ -1,4 +1,5 @@
-require('../scss/base/base.css')
+require('../scss/base/base.css');
+require('../scss/font.scss');
 
 //react
 import React from 'react'

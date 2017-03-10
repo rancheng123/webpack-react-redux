@@ -5,10 +5,14 @@ var config = require('./webpack.config');
 var server = new WebpackDevServer( webpack(config), {
 	//publicPath: '/' + config.output.publicPath,
   	//contentBase: "./public",  //以public为根目录提供文件
-    //historyApiFallback: true,
+
     //inline: true,
     hot: true,
+
+	//统计
     stats: { colors: true },
+
+	//启用h5 historyApi
 	historyApiFallback: true
 });
 server.listen(8388, "localhost", function() {

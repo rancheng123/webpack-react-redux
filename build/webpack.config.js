@@ -184,11 +184,11 @@ module.exports = {
             },
 
 
-           /* {
-             // 专供iconfont方案使用的，后面会带一串时间戳，需要特别匹配到
-             test: /\.(woff|woff2|svg|eot|ttf)\??.*$/,
-             loader: 'filel-loader?name=fonts/[name].[md5:hash:hex:7].[ext]'
-             }*/
+            {
+                test: /\.(woff|svg|eot|ttf)\??.*$/,
+                loader: 'url-loader?limit=50000&name=[path][name].[ext]'
+            },
+
 
         ]
     },
