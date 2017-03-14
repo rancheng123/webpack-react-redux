@@ -4,7 +4,7 @@ require('./test.scss');
 
 
 
-
+import { Button } from 'antd-mobile';
 
 
 class TestSearch extends Component {
@@ -181,7 +181,7 @@ class testWrap extends Component {
 
         return (
             <div>
-                <div className="">
+                <div className="hide">
                     <TestSearch></TestSearch>
                     <TestList></TestList>
                     <div>
@@ -209,6 +209,8 @@ class testWrap extends Component {
                 <div className="testWeiruan">
                     微软雅黑
                 </div>
+
+                <Button>xxxx</Button>
 
                 
             </div>

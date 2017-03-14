@@ -128,8 +128,38 @@ module.exports = {
                 test: /\.js$/,
                 // 匹配不希望处理文件的路径
                 exclude: /(node_modules|bower_components)/,
+
+
+                /*此处含有隐患
+                    node报错：
+                         (node:9704) DeprecationWarning: loaderUtils.parseQuery() received a non-string value which can be problematic, see https://github.com/webpack/loader-utils/issues/56
+                         parseQuery() will be replaced with getOptions() in the next major version of loader-utils.
+                    描述：loader 开发者的问题，不是使用者的问题。期待开发者解决
+                    备选方案：
+                        使用以下方式不会报错
+                            loader: 'babel-loader?presets[]=es2015&presets[]=react'
+
+                */
+
                 //ES2015转码规则       react转码规则
-                loader: 'babel-loader?presets[]=es2015&presets[]=react'
+                //loader: 'babel-loader?presets[]=es2015&presets[]=react'
+
+                //
+                loader: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            //babelrc: false,
+                            presets: ['es2015','react'],
+                            plugins: [
+                                ["import", {
+                                    "style": "css",
+                                    "libraryName": "antd-mobile"
+                                }]
+                            ]
+                        }
+                    }
+                ]
             },
             
 
@@ -194,15 +224,14 @@ module.exports = {
     },
     //其它解决方案配置
     resolve: {
-        //自动扩展文件后缀名，意味着我们require模块可以省略不写后缀名
-        extensions: ['.js', '.json', '.scss'],
-
         //模块别名定义，方便后续直接引用别名，无须多写长长的地址（请求重定向）
         alias: {
             AppStore : 'js/stores/AppStores.js',  //后续直接 require('AppStore') 即可
             ActionType : 'js/actions/ActionType.js',
             AppAction : 'js/actions/AppAction.js'
-        }
+        },
+        //自动扩展文件后缀名，意味着我们require模块可以省略不写后缀名
+        extensions: ['.web.js','.js', '.json', '.scss'],
     }
 };
 

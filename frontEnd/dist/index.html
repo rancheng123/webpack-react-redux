@@ -1,204 +1,26 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <script src="jquery-1.11.1.min.js"></script>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            list-style:none;
-        }
-        .wrap{
-           /* width: 960px;*/
-            margin: 0 auto;
-        }
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+    <!-- viewport的定义？？？？？？？？？ -->
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
 
-        .header1{
-            height: 82px;
-            background: url(./qietu/header1.jpg) center center no-repeat;
-        }
-
-
-        .nav_wrap{
-            width: 960px;
-            margin: 0 auto;
-            height: 100%;
-            position: relative;
-        }
-        .nav_btn1{
-            width: 100px;
-            height: 100%;
-
-            position: absolute;
-            top: 0px;
-            left: 260px;
-            opacity: 0.3;
-        }
-
-        .nav_btn2{
-            width: 100px;
-            height: 100%;
-
-            position: absolute;
-            top: 0px;
-            left: 367px;
-            opacity: 0.3;
-        }
-
-        .nav_btn3{
-            width: 100px;
-            height: 100%;
-
-            position: absolute;
-            top: 0px;
-            left: 474px;
-            opacity: 0.3;
-        }
-
-        .nav_btn4{
-            width: 100px;
-            height: 100%;
-
-            position: absolute;
-            top: 0px;
-            left: 581px;
-            opacity: 0.3;
-        }
-
-        .nav_btn5{
-            width: 53px;
-            height: 100%;
-
-            position: absolute;
-            top: 0px;
-            left: 686px;
-            opacity: 0.3;
-        }
-
-
-
-
-
-        .body1{
-            height: 1253px;
-            background: url(./qietu/index.jpg) center center no-repeat;
-
-        }
-        .item{
-            height: 200px;
-
-            position: absolute;
-            width: 100%;
-            opacity: 0.3;
-        }
-        .item1{
-            top: 100px;
-        }
-        .item2{
-            top: 344px;
-        }
-        .item3{
-            top: 594px;
-        }
-        .item4{
-            top: 843px;
-        }
-
-        .alert{
-            display: none;
-            width: 531px;
-            height: 325px;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            margin-left: -265px;
-            margin-top: -162px;
-        }
-        .alert-cover{
-            width: 100%;
-            height: 100%;
-            background: gray;
-            position: fixed;
-            top: 0px;
-            left: 0px;
-            opacity: 0.5;
-        }
-        .alert-img{
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            margin-left: -265px;
-            margin-top: -162px;
-        }
-
-        .alert-btn1{
-            width: 197px;
-            height: 78px;
-
-            position: absolute;
-            top: 173px;
-            left: 44px;
-            opacity: 0.5;
-        }
-        .alert-btn2{
-            width: 197px;
-            height: 78px;
-
-            position: absolute;
-            top: 173px;
-            left: 289px;
-            opacity: 0.5;
-        }
-    </style>
+    <!--删除默认的苹果工具栏和菜单栏-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+  <title>demo</title>
     <script>
-        $(function(){
-            $('.item').click(function(){
-                $('.alert').show()
-            })
-
-            $('.alert-btn1').click(function(){
-                location.href="./regist.html"
-            })
-            $('.alert-btn2').click(function(){
-                $('.alert').hide()
-            })
-        })
+        //动态计算根元素的font-size
+        document.documentElement.style.fontSize=100*document.documentElement.clientWidth/750+'px';
+        window.onload = window.onresize = function(){
+            document.documentElement.style.fontSize=100*document.documentElement.clientWidth/750+'px';
+        }
     </script>
+
 </head>
 <body>
-
-    <div class="wrap">
-       <!-- <img src="./qietu/about.jpg" alt=""/>-->
-        <div class="header1">
-            <div class="nav_wrap">
-                <a href="./index.html" class="nav_btn1"></a>
-                <a href="./aboutMoney.html" class="nav_btn2"></a>
-                <a href="./concatUs.html" class="nav_btn3"></a>
-                <a href="./login.html" class="nav_btn4"></a>
-                <a href="./regist.html" class="nav_btn5"></a>
-            </div>
-
-        </div>
-        <div class="body1">
-            <div class="nav_wrap">
-                <div class="item item1"></div>
-                <div class="item item2"></div>
-                <div class="item item3"></div>
-                <div class="item item4"></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="alert">
-        <div class="alert-cover"></div>
-        <img  class="alert-img" src="./qietu/alert.png" alt=""/>
-
-        <div class="alert-btn1"></div>
-        <div class="alert-btn2"></div>
-    </div>
-
-
-</body>
+    <div id="app"></div>
+<script type="text/javascript" src="apps/vendors.js?904371ed4b3f27cd9364"></script><script type="text/javascript" src="index.ae2c6.js?904371ed4b3f27cd9364"></script></body>
 </html>

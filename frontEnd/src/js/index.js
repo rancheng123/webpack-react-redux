@@ -9,6 +9,7 @@ import { Router, Route, Link ,browserHistory} from 'react-router';
 import {} from './asset/componentStore';
 
 
+/* 组件 start */
 const Login = (location, callback) => {
     require.ensure([], require => {
         callback(null, require('./module/unlogin/login').default)
@@ -52,30 +53,39 @@ const test = (location, callback) => {
         callback(null, require('./module/login/test/test').default)
     }, 'test')
 }
+
+const antd = (location, callback) => {
+    require.ensure([], require => {
+        callback(null, require('./module/login/antd/test').default)
+    }, 'antd')
+}
 /*测试  end*/
+
+/* 组件 end */
 
 
 render((
-        <div>
-            <Router history={browserHistory}>
+    <div>
+        <Router history={browserHistory}>
 
-                {/*测试  start*/}
-                <Route path="/test" getComponent={test}></Route>
-                {/*测试  end*/}
+            {/*测试  start*/}
+            <Route path="/test" getComponent={test}></Route>
+            <Route path="/antd" getComponent={antd}></Route>
+            {/*测试  end*/}
 
 
-                <Route path="/" getComponent={Login}></Route>
-                <Route path="/login" getComponent={Login}></Route>
-                <Route path="/home" getComponent={home}>
-                    <Route path="/productList" getComponent={product_list} />
-                    <Route path="/productAdd"  getComponent={product_add} />
-                    <Route path="/productDetail" getComponent={product_detail} />
+            <Route path="/" getComponent={Login}></Route>
+            <Route path="/login" getComponent={Login}></Route>
+            <Route path="/home" getComponent={home}>
+                <Route path="/productList" getComponent={product_list} />
+                <Route path="/productAdd"  getComponent={product_add} />
+                <Route path="/productDetail" getComponent={product_detail} />
 
-                    <Route path="/orderList" getComponent={order_list} />
-                </Route>
-            </Router>    
-        </div>
-    
+                <Route path="/orderList" getComponent={order_list} />
+            </Route>
+        </Router>
+    </div>
+
 ), document.getElementById('app'));
 
 
